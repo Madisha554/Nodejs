@@ -1,0 +1,20 @@
+{
+  "name": "nodeclass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "Madisha",
+  "license": "ISC",
+  "description": "Node js development class",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
