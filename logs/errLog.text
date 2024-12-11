@@ -1,0 +1,5 @@
+2024-12-10	20:07:15	4efda9c4-0f99-4971-bc67-28399fd9b4bb	Error: Not allowed by CORS
+2024-12-10	21:31:57	d5ac6ff5-179f-4d6f-9eb6-3a86299a48fe	RangeError: Invalid status code: C:\Users\Madi\Desktop\nodeClass\client\subclient\index.html
+2024-12-10	21:53:42	44bd58c3-153a-4aa9-be46-633c0f8fc57a	Error: ENOENT: no such file or directory, stat 'C:\Users\Madi\Desktop\nodeClass\client\subClient\test.html'
+2024-12-11	00:21:52	d0eb8639-fa94-4dff-ae35-813e7db7d241	ReferenceError: dataclient is not defined
+2024-12-11	00:24:28	7885e280-c0d1-4de5-9f91-4eaeac18dbaa	ReferenceError: dataclient is not defined

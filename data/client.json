@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "dept": "Electrical engineering"
+
+    
+  },
+  {
+    "id": 2,
+    "name": "Madisha Melese",
+    "dept": "Computer Science"
+
+
+    
+  },
+  {
+    "id": 3,
+    "name": "eyasu melese",
+    "dept": "Mechanical engineering"
+  }
+]

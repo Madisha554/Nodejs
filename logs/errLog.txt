@@ -1,1 +1,0 @@
-20241207	10:22:29	55f75c0a-672c-4f6b-8d2d-095dac17bc61	Error: ENOENT: no such file or directory, open 'C:\Users\Madi\Desktop\nodeClass\views\404.html'
