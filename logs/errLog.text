@@ -3,3 +3,16 @@
 2024-12-10	21:53:42	44bd58c3-153a-4aa9-be46-633c0f8fc57a	Error: ENOENT: no such file or directory, stat 'C:\Users\Madi\Desktop\nodeClass\client\subClient\test.html'
 2024-12-11	00:21:52	d0eb8639-fa94-4dff-ae35-813e7db7d241	ReferenceError: dataclient is not defined
 2024-12-11	00:24:28	7885e280-c0d1-4de5-9f91-4eaeac18dbaa	ReferenceError: dataclient is not defined
+2024-12-11	08:32:39	91b504a1-0d10-48ed-abda-88cd3026c78a	ReferenceError: dataclient is not defined
+2024-12-11	08:35:36	ce5a94c9-a46e-44cd-90a5-4798c5ed8d14	ReferenceError: dataclient is not defined
+2024-12-11	08:35:38	61336ed2-af95-43d1-8d13-eb311c5950cd	ReferenceError: dataclient is not defined
+2024-12-11	08:35:57	6891e241-73f1-482e-87d1-3f0848d4c6f9	ReferenceError: dataclient is not defined
+2024-12-11	09:07:33	50f25d72-39f4-4dd4-9882-ce6ce5f24b21	Error: Not allowed by CORS
+2024-12-11	09:07:33	06da2335-1ea5-4276-a011-d2a10d10dba8	Error: Not allowed by CORS
+2024-12-11	09:10:46	ab0c48d5-189f-457c-bcf7-d5572a0227a1	Error: Not allowed by CORS
+2024-12-11	09:10:46	250a6bfe-eb5d-45ea-8b3f-d5220b35e4e5	Error: Not allowed by CORS
+2024-12-11	09:11:08	3b3e52b6-f77c-4682-a156-102589d33514	Error: Not allowed by CORS
+2024-12-11	09:11:08	d3b96ecb-3d86-4ef0-9d9e-98500c368873	Error: Not allowed by CORS
+2024-12-11	09:14:41	4d12fa26-c6f1-4078-a44f-47dcc949ab00	Error: Not allowed by CORS
+2024-12-11	09:20:12	f43f15f4-18ad-48ac-a7be-e5061f06aeb6	Error: Not allowed by CORS
+2024-12-11	10:32:29	d6bd9e21-1513-4385-8171-5aebf5d2e51e	ReferenceError: data is not defined
