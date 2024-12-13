@@ -16,3 +16,4 @@
 2024-12-11	09:14:41	4d12fa26-c6f1-4078-a44f-47dcc949ab00	Error: Not allowed by CORS
 2024-12-11	09:20:12	f43f15f4-18ad-48ac-a7be-e5061f06aeb6	Error: Not allowed by CORS
 2024-12-11	10:32:29	d6bd9e21-1513-4385-8171-5aebf5d2e51e	ReferenceError: data is not defined
+2024-12-13	23:41:29	315af5f8-dadd-4651-944b-7a8b03e8c8a6	SyntaxError: Expected double-quoted property name in JSON at position 38 (line 5 column 1)
