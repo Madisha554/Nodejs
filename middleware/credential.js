@@ -1,0 +1,1 @@
+const allowedorigin = require('../config

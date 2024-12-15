@@ -6,6 +6,8 @@ const usersDB ={
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+
+const path = require('path');
 const fsPromises = require('fs').promises;
 
 const handleLogin = async (req, res) =>{
@@ -36,8 +38,11 @@ const handleLogin = async (req, res) =>{
     await fsPromises.writeFile(
       path.join(__dirname, '..','model', 'users.json'), JSON.stringify(usersDB.users)
     );
+
+    //httpOnly:true is 100% secure and not vulnerable to any js attacks
+
     res.cookie('jwt', refreshToken, {httpOnly: true, maxAge: 60 * 60 * 24 *1000});
-    res.json({accessToken});
+    res.json({accessToken}); // sending for frontend developer
   }
   else{
     res.status(401)

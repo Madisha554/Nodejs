@@ -5,22 +5,40 @@ const cors = require('cors');
 const corsOptions = require('./config/cors.js');
 const { logger } = require('./middleware/logEvents')
 const  errorHandler  = require('./middleware/errorHandler')
+const verifyJWT = require('./middleware/verifyJWT')
+const cookieParser = require('cookie-parser')
+
 const PORT = process.env.PORT || 3500;
 // custom Middle ware logger
 
 app.use(logger)
 // cross origin resource sharing
 
-
 app.use(cors(corsOptions));
+
 app.use(express.urlencoded({extended: false}));
+
 app.use(express.json());
+
+//middleware for cookies
+app.use(cookieParser());
+
 // Static file serving`
 app.use(express.static(path.join(__dirname, '/public')))
+
+//routes to root.js
 app.use(require('./routes/root'))
-app.use('/client', require('./routes/api/client'));
+
+//routes to client.js 
 app.use('/register', require('./routes/register'));
+
 app.use('/auth', require('./routes/auth'));
+app.use('/refresh', require('./routes/refresh'));
+app.use('/logout', require('./routes/logout'));
+
+
+app.use(verifyJWT);
+app.use('/client', require('./routes/api/client'));
 
 app.all('*', (req, res) => {
     res.status(404);
