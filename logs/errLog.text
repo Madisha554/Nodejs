@@ -1,2 +1,20 @@
 2024-12-15	21:05:28	25f04537-bb74-4a67-8161-93d04954d16e	SyntaxError: Expected double-quoted property name in JSON at position 22 (line 3 column 1)
 2024-12-15	23:07:20	bfe60938-0fef-4930-ac79-1de0ff7ecdb5	ReferenceError: token is not defined
+2024-12-16	13:48:29	5d99ea25-9f0f-4f35-9a50-6e2c25527b9e	ReferenceError: allowedorigin is not defined
+2024-12-16	13:48:29	2408c37c-0abd-44b8-84c9-73082ff2083d	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:21	6e84f2fa-efd2-477d-9f32-e3cf0e22ddd1	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:21	7a4df78e-97ca-4663-bae8-e52f2d2694fd	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:54	0894462d-bb55-432e-85b5-20df96caadc5	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:54	d7a19ed8-376a-4f78-a40a-1f3b3f697569	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:57	53b2cc1e-7b7c-4e75-b688-02e33ec9a805	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:57	f51eaf2d-8d57-421a-8a3f-de8ceae89d5b	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:58	382b7dc7-8738-4821-ab85-d144b996a7dd	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:58	97ebde13-fb7d-4508-a100-84f24f8fd445	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:58	297d9606-b40c-4f2b-8150-078728b47128	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:58	686d884f-e733-4df7-89da-a0e174173214	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:58	b0103b24-f475-4f7f-b476-47e7490984d0	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:58	19b34134-fc4b-4f47-9d50-78252b9d5770	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:59	402b17d5-84d8-4a21-83a4-3fa5cdb7a3d1	ReferenceError: allowedorigin is not defined
+2024-12-16	13:49:59	a1c53d4d-aec0-44fb-a2b2-689b0d44af60	ReferenceError: allowedorigin is not defined
+2024-12-16	13:54:14	7401ceec-a14d-4eb7-82fb-b59f8481f1d1	ReferenceError: allowedorigin is not defined
+2024-12-16	13:54:14	69b91054-0eb9-4620-ba7c-5cad59d727d9	ReferenceError: allowedorigin is not defined

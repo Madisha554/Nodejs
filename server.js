@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const credentials = require('./middleware/credential.js');
 const cors = require('cors');
 const corsOptions = require('./config/cors.js');
 const { logger } = require('./middleware/logEvents')
@@ -12,8 +13,10 @@ const PORT = process.env.PORT || 3500;
 // custom Middle ware logger
 
 app.use(logger)
-// cross origin resource sharing
 
+app.use(credentials);
+
+// cross origin resource sharing
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({extended: false}));
