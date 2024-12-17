@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -8,10 +10,11 @@ const { logger } = require('./middleware/logEvents')
 const  errorHandler  = require('./middleware/errorHandler')
 const verifyJWT = require('./middleware/verifyJWT')
 const cookieParser = require('cookie-parser')
-
+const mongoose = require('mongoose');
+const connectDB = require('./config/dbConn')
 const PORT = process.env.PORT || 3500;
 // custom Middle ware logger
-
+connectDB()
 app.use(logger)
 
 app.use(credentials);
@@ -53,7 +56,17 @@ app.all('*', (req, res) => {
         res.type('txt').sendFile('404 Not Found');
     }
 })
-
 app.use(errorHandler)
 
-app.listen(PORT);
+mongoose.connection.once('open', () => {
+    console.log('connected')
+    app.listen(PORT);
+
+})
+
+// Why we choice MongoDB instead of using mysql
+    // 1. Performadnce
+    // 2. Scalability
+    // 3. Usability
+    // 4. Security
+    // 5. Flexibility: 

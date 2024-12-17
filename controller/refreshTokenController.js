@@ -4,7 +4,6 @@ const usersDB ={
 }
 
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 const path = require('path');
 const fsPromises = require('fs').promises;
 
