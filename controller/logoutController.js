@@ -27,7 +27,7 @@ const handleLogout = async (req, res) => {
 
   await fsPromises.writeFile(path.join(__dirname, '..', 'model', 'users.json'), JSON.stringify(userDB.users))
 
-  res.clearCookie('jwt', {httpOnly: true, maxAge: 24*60*60*1000}) // Also we can use secure: true - only serves on https and we have to add this in the production but not in the development
+  res.clearCookie('jwt', {httpOnly: true, secure: true, sameSite: 'None'}) // Also we can use secure: true - only serves on https and we have to add this in the production but is not mandatorry in the development
   res.sendStatus(204)// No content
 
 }

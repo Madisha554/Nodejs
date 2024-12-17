@@ -1,13 +1,19 @@
 const express = require('express');
 const router = express.Router()
 const clientController = require('../../controller/clientController')
+const Roles_List = require('../../config/roleList')
+const verifyRoles = require('../../middleware/verifyRoles')
 
 router.route('/')
+      //View all clients who in the Database
    .get(clientController.getAllClient)
-    .post(clientController.postNewClient)
-    .put(clientController.putClient)
-    .delete(clientController.deleteClient);
-
+      //Post client into the server
+    .post(verifyRoles(Roles_List.Admin, Roles_List.Editor), clientController.postNewClient)
+      //Update client on server
+    .put(verifyRoles(Roles_List.Admin, Roles_List.Editor),clientController.putClient)
+       //Delete
+    .delete(verifyRoles(Roles_List.Admin),clientController.deleteClient);
+      // Get Client by Id
 router.route('/:id')
       .get(clientController.getClient)
 

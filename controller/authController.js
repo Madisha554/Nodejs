@@ -17,11 +17,16 @@ const handleLogin = async (req, res) =>{
   if (!userRecord) return res.status(401)// Unauthenticated
   const match = await bcrypt.compare(password, userRecord.password);
   if(match){
+    const roles = Object.values(userRecord.roles)
 
     // Create JWTs
 
     const accessToken = jwt.sign(
-      { username: userRecord.username }, 
+      { "userInfo":{
+        "username": userRecord.username,
+        "roles": roles,
+      }
+    }, 
       process.env.ACCESS_TOKEN_SECRET, 
       { expiresIn: '30s' }
     );
@@ -41,7 +46,7 @@ const handleLogin = async (req, res) =>{
 
     //httpOnly:true is 100% secure and not vulnerable to any js attacks
 
-    res.cookie('jwt', refreshToken, {httpOnly: true, maxAge: 60 * 60 * 24 *1000});
+    res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'None', secure:true,  maxAge: 60 * 60 * 24 *1000});
     res.json({accessToken}); // sending for frontend developer
   }
   else{

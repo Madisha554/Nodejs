@@ -18,3 +18,4 @@
 2024-12-16	13:49:59	a1c53d4d-aec0-44fb-a2b2-689b0d44af60	ReferenceError: allowedorigin is not defined
 2024-12-16	13:54:14	7401ceec-a14d-4eb7-82fb-b59f8481f1d1	ReferenceError: allowedorigin is not defined
 2024-12-16	13:54:14	69b91054-0eb9-4620-ba7c-5cad59d727d9	ReferenceError: allowedorigin is not defined
+2024-12-17	17:18:00	cdd74d15-12fa-483c-9cb7-7e4f165bf01d	SyntaxError: Expected ',' or '}' after property value in JSON at position 44 (line 4 column 1)
