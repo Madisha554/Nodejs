@@ -1,19 +1,15 @@
-const usersDB ={
-  users: require('../model/users.json'),
-  setUsers: function (data) {this.users = data},
-}
+const User = require('../model/User')
 
 const jwt = require('jsonwebtoken');
-const path = require('path');
-const fsPromises = require('fs').promises;
 
-const handleRefresh = (req, res) => {
+
+const handleRefresh = async (req, res) => {
   const cookies = req.cookies
   if (!cookies?.jwt) return res.status(401);
 
   const refreshToken = cookies.jwt;
-  const userRecord = usersDB.users.find(u => u.refreshToken===refreshToken);
-  if (!userRecord) return res.status(403)// Unauthenticated
+  const userRecord = await User.findOne({refreshToken}).exec();
+  if (!userRecord) return res.status(403)// Forbidden
 
   jwt.verify(
     refreshToken, 

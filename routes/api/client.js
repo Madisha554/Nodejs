@@ -10,7 +10,7 @@ router.route('/')
       //Post client into the server
     .post(verifyRoles(Roles_List.Admin, Roles_List.Editor), clientController.postNewClient)
       //Update client on server
-    .put(verifyRoles(Roles_List.Admin, Roles_List.Editor),clientController.putClient)
+    .put(verifyRoles(Roles_List.Admin, Roles_List.Editor),clientController.updateClient)
        //Delete
     .delete(verifyRoles(Roles_List.Admin),clientController.deleteClient);
       // Get Client by Id

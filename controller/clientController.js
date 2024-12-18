@@ -1,60 +1,67 @@
-const data = {
-  client: require('../model/client.json'),
-  setClient: function (data) {this.client = data}
+const Client = require('../model/Client');
+
+
+const getAllClient = async (req, res)=>{
+  const clients = await Client.find();
+  if(!clients) return res.status(404).json({'message': 'No clients found'})
+  res.json(clients)
 }
 
-const getAllClient = (req, res)=>{
-  res.json(data.client)
+const postNewClient = async (req, res) => {
+  if(!req?.body?.name || !req?.body?.dept){
+    return res.status(404).json({'message': 'Both name and dept are required'})
+  }
+  try{
+    const result = await Client.create({
+      name: req.body.name,
+      dept: req.body.dept
+    })
+    res.status(201).json(result)
+  }catch(err){
+    console.error(err);
+    res.status(500).json({'message': 'Server Error'})
+  }
 }
-const postNewClient =(req, res) => {
-  const newClient = { 
-    id: data.client.length ? data.client[data.client.length - 1].id + 1 : 1, 
-    name: req.body.name, 
-    dept: req.body.dept
+const updateClient= async (req, res) => {
+  if(!req?.body?.id){
+    return res.status(400).json({'message': 'ID paramete r is required'})
   }
-  if(!newClient.name || !newClient.dept){
-    return res.status(400).json({'message': "Missing required fields"})
+  const client = await Client.findOne({_id: req.body.id}).exec();
+  if(!client) {
+    return res.status(204).json({'message': `No client matches ID ${req.body.id}`})
   }
-  data.setClient([...data.client, newClient])
-  res.json(data.client)
-}
-const putClient= (req, res) => {
-  const cli = data.client.find(c => c.id === parseInt(req.body.id));
-  if(!cli){
-    return res.status(404).json({'message': `Client ID ${req.body.id} not found`})
-  }
-  if(req.body.name) cli.name = req.body.name
-  if(req.body.dept) cli.dept = req.body.dept
+// may be you have to ignore the ? after req
+  if(req?.body?.name) client.name = req.body.name;
+  if(req?.body?.dept) client.dept = req.body.dept;
 
-  const filterArray = data.client.filter(cli => cli.id !== parseInt(req.body.id))
-  const unsortedArray = ([...filterArray, cli])
-  data.setClient(unsortedArray.sort((a, b) => a.id > b.id? 1: a.id < b.id? -1:0))
-  res.json(data.client)
+  const result = await client.save();
+  res.json(result)
 }
-const deleteClient = (req, res) => {
-  const cli = data.client.find(c => c.id === parseInt(req.body.id));
-  if(!cli){
-    return res.status(404).json({'message': `Client ID ${req.body.id} not found`})
+const deleteClient = async (req, res) => {
+  if(!req?.body?.id){
+    return res.status(400).json({'message': 'ID parametexxxr is required'})
   }
-  const filterArray = data.client.filter(cli => cli.id!== parseInt(req.body.id))
-  data.setClient([...filterArray])
-  res.json(data.client)
-  
+  const client = await Client.findOne({_id: req.body.id}).exec();
+  if(!client){
+    return res.status(204).json({'message': `No client matches ID ${req.body.id}.`})
+  }
+  const result = await client.remove();
+  res.json(result)
 };
 
-  const getClient = (req, res) =>{
-    const cli = data.client.find(c => c.id === parseInt(req.params.id));
-    if(!cli){
-      return res.status(404).json({'message': `Client ID ${req.params.id} not found`})
-    }
-    res.json(cli)
+  const getClient = async (req, res) =>{
+    if(!req?.params?.id) return res.status(404).json({'message': 'ID parameter is required'}) ;
+    const client = await Client.findOne({_id:req.params.id}).exec();
+    if(!client) return res.status(204).json({'message': `No client found with ID ${req.params.id}`});
+
+    res.json(client)
     // res.json({"id": req.params.id})
   }
 
   module.exports = {
     getAllClient,
     postNewClient,
-    putClient,
+    updateClient,
     deleteClient,
     getClient
   }

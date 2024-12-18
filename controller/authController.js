@@ -1,18 +1,13 @@
-const usersDB ={
-  users: require('../model/users.json'),
-  setUsers: function (data) {this.users = data},
-}
+const User = require('../model/User')
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const path = require('path');
-const fsPromises = require('fs').promises;
 
 const handleLogin = async (req, res) =>{
   const {user, password} = req.body
   if (!user || !password) return res.status(401).json({ message: ' username and password are required' });
-  const userRecord = usersDB.users.find(u => u.username === user);
+  const userRecord = await User.findOne({username: user}).exec();
   if (!userRecord) return res.status(401)// Unauthenticated
   const match = await bcrypt.compare(password, userRecord.password);
   if(match){
@@ -36,16 +31,13 @@ const handleLogin = async (req, res) =>{
     );
 
     //saving refresh token with current user
-    const otherUsers = usersDB.users.filter(person => person.username !== userRecord.username); 
-    const currentUser = {...userRecord, refreshToken };
-    usersDB.setUsers([...otherUsers, currentUser]);
-    await fsPromises.writeFile(
-      path.join(__dirname, '..','model', 'users.json'), JSON.stringify(usersDB.users)
-    );
+    userRecord.refreshToken = refreshToken;
+    const result = await userRecord.save();
+    console.log(result)
 
     //httpOnly:true is 100% secure and not vulnerable to any js attacks
 
-    res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'None', secure:true,  maxAge: 60 * 60 * 24 *1000});
+    res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'None',  maxAge: 60 * 60 * 24 *1000});// secure: true
     res.json({accessToken}); // sending for frontend developer
   }
   else{

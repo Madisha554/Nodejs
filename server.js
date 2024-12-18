@@ -59,7 +59,7 @@ app.all('*', (req, res) => {
 app.use(errorHandler)
 
 mongoose.connection.once('open', () => {
-    console.log('connected')
+    console.log('MonogoDB connected successfully')
     app.listen(PORT);
 
 })
